@@ -183,7 +183,13 @@ Tab2:AddSwitch("Auto egg", function(bool)
     _G.Balls = bool
     while wait() do
       if _G.Balls == false then break end
-      game:GetService("ReplicatedStorage").Remote.Hatch.EggHatch:InvokeServer(RaycastNumber,"Open1",{})
+      local args = {
+            [1] = RaycastNumber,
+            [2] = "Open3",
+            [3] = {}
+      }
+
+      game:GetService("ReplicatedStorage").Remote.Hatch.EggHatch:InvokeServer(unpack(args))
       if _G.Shit == "1" then
         RaycastNumber = 1
       end
@@ -228,3 +234,11 @@ Tab2:AddSwitch("Auto egg", function(bool)
       end
       end
   end)
+
+Tab2:AddSwitch("Auto equip best", function(bool)
+        _G.AutoEquip = bool
+        while wait() do
+            if _G.AutoEquip == false then break end
+            game:GetService("ReplicatedStorage").Remote.Pet.EquipBest:FireServer()
+    end
+end)
