@@ -120,25 +120,39 @@ Tab1:AddSwitch("Auto win", function(bool)
     while wait() do
       if _G.Win == false then break end
       if _G.Zone == "1" then
-      game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(1)
+           if not game:GetService("Workspace").Mine["1"].Block:FindFirstChild(12) then
+                  game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(1)
+         end
       end
       if _G.Zone == "2" then
-      game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(2)
+           if not game:GetService("Workspace").Mine["2"].Block:FindFirstChild(12) then
+                  game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(2)
+         end
       end
       if _G.Zone == "3" then
-      game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(3)
+           if not game:GetService("Workspace").Mine["3"].Block:FindFirstChild(12) then
+                  game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(3)
+         end
       end
       if _G.Zone == "4" then
-      game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(4)
+           if not game:GetService("Workspace").Mine["4"].Block:FindFirstChild(12) then
+                  game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(4)
+         end
       end
       if _G.Zone == "5" then
-      game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(5)
+           if not game:GetService("Workspace").Mine["5"].Block:FindFirstChild(12) then
+                  game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(5)
+         end
       end
       if _G.Zone == "6" then
-      game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(6)
+           if not game:GetService("Workspace").Mine["6"].Block:FindFirstChild(12) then
+                  game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(6)
+         end
       end
       if _G.Zone == "7" then
-      game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(7)
+           if not game:GetService("Workspace").Mine["7"].Block:FindFirstChild(12) then
+                  game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(7)
+         end
       end
      end
 end)
