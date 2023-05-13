@@ -115,6 +115,34 @@ Tab1:AddSwitch("Auto rebirth", function(bool)
     end
 end)
 
+Tab1:AddSwitch("Auto win", function(bool)
+    _G.Win = bool
+    while wait() do
+      if _G.Win == false then break end
+      if _G.Zone == "1" then
+      game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(1)
+      end
+      if _G.Zone == "2" then
+      game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(2)
+      end
+      if _G.Zone == "3" then
+      game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(3)
+      end
+      if _G.Zone == "4" then
+      game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(4)
+      end
+      if _G.Zone == "5" then
+      game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(5)
+      end
+      if _G.Zone == "6" then
+      game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(6)
+      end
+      if _G.Zone == "7" then
+      game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(7)
+      end
+     end
+end)
+
 local EggTab = Tab2:AddDropdown("Select Egg number", function(object)
     _G.Shit = object
    _ZoneScript:Set("Selected Egg Number: " .. object) 
