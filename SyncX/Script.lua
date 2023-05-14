@@ -179,17 +179,57 @@ EggTab:Add("14")
 
 local RaycastNumber = 0
 
+local Multiple = {
+       Delete_1 = 0,
+       Delete_2 = 0,
+       Delete_3 = 0,
+       Delete_4 = 0,
+       Delete_5 = 0,
+       Delete_6 = 0
+    }
+
+Tab2:AddTextBox("Delete 1 (Pet number)", function(text)
+        Multiple.Delete_1 = tonumber(text)
+end)
+
+Tab2:AddTextBox("Delete 2 (Pet number)", function(text)
+        Multiple.Delete_2 = tonumber(text)
+end)
+
+Tab2:AddTextBox("Delete 3 (Pet number)", function(text)
+        Multiple.Delete_3 = tonumber(text)
+end)
+
+Tab2:AddTextBox("Delete 4 (Pet number)", function(text)
+        Multiple.Delete_4 = tonumber(text)
+end)
+
+Tab2:AddTextBox("Delete 5 (Pet number)", function(text)
+        Multiple.Delete_5 = tonumber(text)
+end)
+
+Tab2:AddTextBox("Delete 6 (Pet number)", function(text)
+        Multiple.Delete_6 = tonumber(text)
+end)
+
 Tab2:AddSwitch("Auto egg", function(bool)
     _G.Balls = bool
     while wait() do
       if _G.Balls == false then break end
       local args = {
-            [1] = RaycastNumber,
-            [2] = "Open3",
-            [3] = {}
-      }
+    [1] = RaycastNumber,
+    [2] = "Open3",
+    [3] = {
+        [1] = Multiple.Delete_1,
+        [2] = Multiple.Delete_2,
+        [3] = Multiple.Delete_3,
+        [4] = Multiple.Delete_4,
+        [5] = Multiple.Delete_5,
+        [6] = Multiple.Delete_6
+    }
+}
 
-      game:GetService("ReplicatedStorage").Remote.Hatch.EggHatch:InvokeServer(unpack(args))
+game:GetService("ReplicatedStorage").Remote.Hatch.EggHatch:InvokeServer(unpack(args))
       if _G.Shit == "1" then
         RaycastNumber = 1
       end
