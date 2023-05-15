@@ -157,8 +157,35 @@ Tab1:AddSwitch("Auto win", function(bool)
      end
 end)
 
+Tab1:AddSwitch("Auto craft", function(bool)
+        _G.Merge = bool
+        while wait() do
+            if _G.Merge == false then break end
+            game:GetService("ReplicatedStorage").Remote.Pet.PetCraft:InvokeServer(math.random(75))
+    end
+end)
+
+Tab1:AddSwitch("Auto gift", function(bool)
+        _G.Gift_1 = bool
+        while wait() do
+            if _G.Gift_1 == false then break end
+            game:GetService("ReplicatedStorage").Remote.Online.TryGetOnlineGift:InvokeServer(1)
+            game:GetService("ReplicatedStorage").Remote.Online.TryGetOnlineGift:InvokeServer(2)
+            game:GetService("ReplicatedStorage").Remote.Online.TryGetOnlineGift:InvokeServer(3)
+            game:GetService("ReplicatedStorage").Remote.Online.TryGetOnlineGift:InvokeServer(4)
+            game:GetService("ReplicatedStorage").Remote.Online.TryGetOnlineGift:InvokeServer(5)
+            game:GetService("ReplicatedStorage").Remote.Online.TryGetOnlineGift:InvokeServer(6)
+            game:GetService("ReplicatedStorage").Remote.Online.TryGetOnlineGift:InvokeServer(7)
+            game:GetService("ReplicatedStorage").Remote.Online.TryGetOnlineGift:InvokeServer(8)
+    end
+end)
+
+Tab1:AddButton("Teleport to selected zone", function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game:GetService("Workspace").World[_G.Zone].Deco.Part.Position)
+end)
+
 local EggTab = Tab2:AddDropdown("Select Egg number", function(object)
-    _G.Shit = object
+    _G.Shit = tonumber(object)
    _ZoneScript:Set("Selected Egg Number: " .. object) 
 end)
 
@@ -217,7 +244,7 @@ Tab2:AddSwitch("Auto egg", function(bool)
     while wait() do
       if _G.Balls == false then break end
       local args = {
-    [1] = RaycastNumber,
+    [1] = _G.Shit,
     [2] = "Open3",
     [3] = {
         [1] = Multiple.Delete_1,
@@ -230,48 +257,6 @@ Tab2:AddSwitch("Auto egg", function(bool)
 }
 
 game:GetService("ReplicatedStorage").Remote.Hatch.EggHatch:InvokeServer(unpack(args))
-      if _G.Shit == "1" then
-        RaycastNumber = 1
-      end
-      if _G.Shit == "2" then
-        RaycastNumber = 2
-      end
-      if _G.Shit == "3" then
-        RaycastNumber = 3
-      end
-      if _G.Shit == "4" then
-        RaycastNumber = 4
-      end
-      if _G.Shit == "5" then
-        RaycastNumber = 5
-      end
-      if _G.Shit == "6" then
-        RaycastNumber = 6
-      end
-      if _G.Shit == "7" then
-        RaycastNumber = 7
-      end
-      if _G.Shit == "8" then
-        RaycastNumber = 8
-      end
-      if _G.Shit == "9" then
-        RaycastNumber = 9
-      end
-      if _G.Shit == "10" then
-        RaycastNumber = 10
-      end
-      if _G.Shit == "11" then
-        RaycastNumber = 11
-      end
-      if _G.Shit == "12" then
-        RaycastNumber = 12
-      end
-      if _G.Shit == "13" then
-        RaycastNumber = 13
-      end
-      if _G.Shit == "14" then
-        RaycastNumber = 14
-      end
       end
   end)
 
