@@ -25,7 +25,8 @@ ZoneScript_:Set("Selected Zone: 1")
 _ZoneScript:Set("Selected Egg Number: 1")
 
 local ZoneTab1 = Tab1:AddDropdown("Select Zones", function(object)
-    _G.Zone = object
+    _G.Zone = tonumber(object)
+    _G.TriviaZone = object
    ZoneScript_:Set("Selected Zone: " .. object) 
 end)
 
@@ -36,32 +37,15 @@ ZoneTab1:Add("4")
 ZoneTab1:Add("5")
 ZoneTab1:Add("6")
 ZoneTab1:Add("7")
+ZoneTab1:Add("8")
+ZoneTab1:Add("9")
+ZoneTab1:Add("10")
 
 Tab1:AddSwitch("Auto train", function(bool)
     _G.Train = bool
     while wait() do
       if _G.Train == false then break end
-      if _G.Zone == "1" then
-      game:GetService("ReplicatedStorage").Remote.Mine.AddTrain:FireServer(1)
-      end
-      if _G.Zone == "2" then
-      game:GetService("ReplicatedStorage").Remote.Mine.AddTrain:FireServer(2)
-      end
-      if _G.Zone == "3" then
-      game:GetService("ReplicatedStorage").Remote.Mine.AddTrain:FireServer(3)
-      end
-      if _G.Zone == "4" then
-      game:GetService("ReplicatedStorage").Remote.Mine.AddTrain:FireServer(4)
-      end
-      if _G.Zone == "5" then
-      game:GetService("ReplicatedStorage").Remote.Mine.AddTrain:FireServer(5)
-      end
-      if _G.Zone == "6" then
-      game:GetService("ReplicatedStorage").Remote.Mine.AddTrain:FireServer(6)
-      end
-      if _G.Zone == "7" then
-      game:GetService("ReplicatedStorage").Remote.Mine.AddTrain:FireServer(7)
-      end
+      game:GetService("ReplicatedStorage").Remote.Mine.AddTrain:FireServer(_G.Zone)
      end
 end)
 
@@ -71,39 +55,18 @@ Tab1:AddSwitch("Auto bomb", function(bool)
     _G.Bomb = bool
     while wait() do
       if _G.Bomb == false then break end
-      game:GetService("ReplicatedStorage").Remote.Mine.HitBlock:FireServer(RaycastZones, 1)
-      game:GetService("ReplicatedStorage").Remote.Mine.HitBlock:FireServer(RaycastZones, 2)
-      game:GetService("ReplicatedStorage").Remote.Mine.HitBlock:FireServer(RaycastZones, 3)
-      game:GetService("ReplicatedStorage").Remote.Mine.HitBlock:FireServer(RaycastZones, 4)
-      game:GetService("ReplicatedStorage").Remote.Mine.HitBlock:FireServer(RaycastZones, 5)
-      game:GetService("ReplicatedStorage").Remote.Mine.HitBlock:FireServer(RaycastZones, 6)
-      game:GetService("ReplicatedStorage").Remote.Mine.HitBlock:FireServer(RaycastZones, 7)
-      game:GetService("ReplicatedStorage").Remote.Mine.HitBlock:FireServer(RaycastZones, 8)
-      game:GetService("ReplicatedStorage").Remote.Mine.HitBlock:FireServer(RaycastZones, 9)
-      game:GetService("ReplicatedStorage").Remote.Mine.HitBlock:FireServer(RaycastZones, 10)
-      game:GetService("ReplicatedStorage").Remote.Mine.HitBlock:FireServer(RaycastZones, 11)
-      game:GetService("ReplicatedStorage").Remote.Mine.HitBlock:FireServer(RaycastZones, 12)
-      if _G.Zone == "1" then
-        RaycastZones = 1
-      end
-      if _G.Zone == "2" then 
-        RaycastZones = 2
-      end
-      if _G.Zone == "3" then
-        RaycastZones = 3
-      end
-      if _G.Zone == "4" then
-        RaycastZones = 4
-      end
-      if _G.Zone == "5" then 
-        RaycastZones = 5
-      end
-      if _G.Zone == "6" then 
-        RaycastZones = 6
-      end
-      if _G.Zone == "7" then 
-        RaycastZones = 7
-      end
+      game:GetService("ReplicatedStorage").Remote.Mine.HitBlock:FireServer(_G.Zone, 1)
+      game:GetService("ReplicatedStorage").Remote.Mine.HitBlock:FireServer(_G.Zone, 2)
+      game:GetService("ReplicatedStorage").Remote.Mine.HitBlock:FireServer(_G.Zone, 3)
+      game:GetService("ReplicatedStorage").Remote.Mine.HitBlock:FireServer(_G.Zone, 4)
+      game:GetService("ReplicatedStorage").Remote.Mine.HitBlock:FireServer(_G.Zone, 5)
+      game:GetService("ReplicatedStorage").Remote.Mine.HitBlock:FireServer(_G.Zone, 6)
+      game:GetService("ReplicatedStorage").Remote.Mine.HitBlock:FireServer(_G.Zone, 7)
+      game:GetService("ReplicatedStorage").Remote.Mine.HitBlock:FireServer(_G.Zone, 8)
+      game:GetService("ReplicatedStorage").Remote.Mine.HitBlock:FireServer(_G.Zone, 9)
+      game:GetService("ReplicatedStorage").Remote.Mine.HitBlock:FireServer(_G.Zone, 10)
+      game:GetService("ReplicatedStorage").Remote.Mine.HitBlock:FireServer(_G.Zone, 11)
+      game:GetService("ReplicatedStorage").Remote.Mine.HitBlock:FireServer(_G.Zone, 12)
    end
 end)
 
@@ -119,41 +82,9 @@ Tab1:AddSwitch("Auto win", function(bool)
     _G.Win = bool
     while wait() do
       if _G.Win == false then break end
-      if _G.Zone == "1" then
-           if not game:GetService("Workspace").Mine["1"].Block:FindFirstChild(12) then
-                  game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(1)
-         end
-      end
-      if _G.Zone == "2" then
-           if not game:GetService("Workspace").Mine["2"].Block:FindFirstChild(12) then
-                  game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(2)
-         end
-      end
-      if _G.Zone == "3" then
-           if not game:GetService("Workspace").Mine["3"].Block:FindFirstChild(12) then
-                  game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(3)
-         end
-      end
-      if _G.Zone == "4" then
-           if not game:GetService("Workspace").Mine["4"].Block:FindFirstChild(12) then
-                  game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(4)
-         end
-      end
-      if _G.Zone == "5" then
-           if not game:GetService("Workspace").Mine["5"].Block:FindFirstChild(12) then
-                  game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(5)
-         end
-      end
-      if _G.Zone == "6" then
-           if not game:GetService("Workspace").Mine["6"].Block:FindFirstChild(12) then
-                  game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(6)
-         end
-      end
-      if _G.Zone == "7" then
-           if not game:GetService("Workspace").Mine["7"].Block:FindFirstChild(12) then
-                  game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(7)
-         end
-      end
+      if not game:GetService("Workspace").Mine[_G.TriviaZone].Block:FindFirstChild(12) then
+             game:GetService("ReplicatedStorage").Remote.Mine.CheckIfWin:FireServer(_G.Zone)
+       end
      end
 end)
 
@@ -181,7 +112,7 @@ Tab1:AddSwitch("Auto gift", function(bool)
 end)
 
 Tab1:AddButton("Teleport to selected zone", function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game:GetService("Workspace").World[_G.Zone].Deco.Part.Position)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game:GetService("Workspace").World[_G.TriviaZone].Deco.Part.Position)
 end)
 
 local EggTab = Tab2:AddDropdown("Select Egg number", function(object)
